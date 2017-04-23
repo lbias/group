@@ -1,0 +1,28 @@
+<div class="col-md-12">
+  <div class="qun">
+    <%= link_to("New qun", new_qun_path, class: "btn btn-primary pull-right") %>
+  </div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <td>#</td>
+        <td>Title</td>
+        <td>Description</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @quns.each do |qun| %>
+        <tr>
+          <td>#</td>
+          <td><%= link_to(qun.title, qun_path(qun)) %></td>
+          <td><%= qun.description %></td>
+          <td>
+              <%= link_to("Edit", edit_qun_path(qun), class: "btn btn-sm btn-default")%>
+              <%= link_to("Delete", qun_path(qun),    class: "btn btn-sm btn-default",
+                          method: :delete, data: { confirm: "Are you sure?" } )%>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
