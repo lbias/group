@@ -1,0 +1,2 @@
+class QunsController < ApplicationController
+end
