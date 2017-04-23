@@ -1,0 +1,2 @@
+class Qun < ApplicationRecord
+end
