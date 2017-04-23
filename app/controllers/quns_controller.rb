@@ -7,4 +7,16 @@ class QunsController < ApplicationController
     @qun = Qun.new
   end
 
+  def create
+    @qun = Qun.new(qun_params)
+    @qun.save
+
+      redirect_to quns_path
+  end
+
+  private
+
+  def qun_params
+    params.require(:qun).permit(:title, :description)
+  end
 end
