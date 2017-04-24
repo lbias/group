@@ -3,6 +3,10 @@ class QunsController < ApplicationController
     @quns = Qun.all
   end
 
+  def show
+    @qun = Qun.find(params[:id])
+  end
+
   def new
     @qun = Qun.new
   end
