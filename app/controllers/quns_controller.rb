@@ -22,6 +22,14 @@ class QunsController < ApplicationController
     @qun = Qun.find(params[:id])
   end
 
+   def update
+     @qun = Qun.find(params[:id])
+
+     @qun.update(qun_params)
+
+     redirect_to quns_path, notice: "Update Success"
+   end
+
   private
 
   def qun_params
