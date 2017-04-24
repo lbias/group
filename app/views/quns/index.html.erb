@@ -8,6 +8,7 @@
         <td>#</td>
         <td>Title</td>
         <td>Description</td>
+        <td>Creator </td>
       </tr>
     </thead>
     <tbody>
@@ -16,6 +17,7 @@
           <td>#</td>
           <td><%= link_to(qun.title, qun_path(qun)) %></td>
           <td><%= qun.description %></td>
+          <td> <%= qun.user.email %> </td>
           <td>
               <%= link_to("Edit", edit_qun_path(qun), class: "btn btn-sm btn-default")%>
               <%= link_to("Delete", qun_path(qun),    class: "btn btn-sm btn-default",
