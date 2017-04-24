@@ -13,9 +13,11 @@ class QunsController < ApplicationController
 
   def create
     @qun = Qun.new(qun_params)
-    @qun.save
-
+    if @qun.save
       redirect_to quns_path
+    else
+      render :new
+    end 
   end
 
   def edit
