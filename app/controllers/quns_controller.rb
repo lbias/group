@@ -17,7 +17,7 @@ class QunsController < ApplicationController
       redirect_to quns_path
     else
       render :new
-    end 
+    end
   end
 
   def edit
@@ -26,10 +26,11 @@ class QunsController < ApplicationController
 
    def update
      @qun = Qun.find(params[:id])
-
-     @qun.update(qun_params)
-
-     redirect_to quns_path, notice: "Update Success"
+     if @qun.update(qun_params)
+       redirect_to quns_path, notice: "Update Success"
+     else
+       render :edit
+     end
    end
 
   def destroy
