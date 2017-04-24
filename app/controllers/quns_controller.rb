@@ -31,10 +31,10 @@ class QunsController < ApplicationController
    end
 
   def destroy
-    @group = Group.find(params[:id])
-    @group.destroy
-    flash[:alert] = "Group deleted"
-    redirect_to groups_path
+    @qun = Qun.find(params[:id])
+    @qun.destroy
+    flash[:alert] = "Qun deleted"
+    redirect_to quns_path
   end
 
   private
