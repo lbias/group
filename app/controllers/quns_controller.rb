@@ -15,6 +15,7 @@ class QunsController < ApplicationController
 
   def create
     @qun = Qun.new(qun_params)
+    @qun.user = current_user
     if @qun.save
       redirect_to quns_path
     else
