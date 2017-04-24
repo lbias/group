@@ -1,5 +1,5 @@
 class QunsController < ApplicationController
-  before_action :authenticate_user! , only: [:new]
+  before_action :authenticate_user! , only: [:new, :create]
 
   def index
     @quns = Qun.all
