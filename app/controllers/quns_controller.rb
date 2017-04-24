@@ -18,6 +18,10 @@ class QunsController < ApplicationController
       redirect_to quns_path
   end
 
+  def edit
+    @qun = Qun.find(params[:id])
+  end
+
   private
 
   def qun_params
