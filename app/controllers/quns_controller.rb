@@ -1,5 +1,6 @@
 class QunsController < ApplicationController
   before_action :authenticate_user! , only: [:new, :create, :edit, :update, :destroy]
+  before_action :find_group_and_check_permission, only: [:edit, :update, :destroy]
 
   def index
     @quns = Qun.all
@@ -24,11 +25,9 @@ class QunsController < ApplicationController
   end
 
   def edit
-    find_qun_and_check_permission
   end
 
    def update
-     find_qun_and_check_permission
      if @qun.update(qun_params)
        redirect_to quns_path, notice: "Update Success"
      else
@@ -37,7 +36,6 @@ class QunsController < ApplicationController
    end
 
   def destroy
-    find_qun_and_check_permission
     @qun.destroy
     redirect_to quns_path, alert: "Qun deleted"
   end
