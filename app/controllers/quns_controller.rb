@@ -48,6 +48,13 @@ class QunsController < ApplicationController
   end
 
   private
+  def find_qun_and_check_permission
+    @qun = Qun.find(params[:id])
+
+    if current_user != @qun.user
+      redirect_to root_path, alert: "You have no permission."
+    end
+  end
 
   def qun_params
     params.require(:qun).permit(:title, :description)
