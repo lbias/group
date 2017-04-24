@@ -19,10 +19,12 @@
           <td><%= qun.description %></td>
           <td> <%= qun.user.email %> </td>
           <td>
-              <%= link_to("Edit", edit_qun_path(qun), class: "btn btn-sm btn-default")%>
-              <%= link_to("Delete", qun_path(qun),    class: "btn btn-sm btn-default",
-                          method: :delete, data: { confirm: "Are you sure?" } )%>
-          </td>
+              <% if current_user && current_user == qun.user %>
+                 <%= link_to("Edit", edit_qun_path(qun), class: "btn btn-sm btn-default")%>
+                 <%= link_to("Delete", qun_path(qun),    class: "btn btn-sm btn-default",
+                             method: :delete, data: { confirm: "Are you sure?" } )%>
+              <% end %>
+              </td>
         </tr>
       <% end %>
     </tbody>
