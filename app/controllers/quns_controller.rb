@@ -24,15 +24,11 @@ class QunsController < ApplicationController
   end
 
   def edit
-    @qun = Qun.find(params[:id])
-
-    if current_user != @qun.user
-      redirect_to root_path, alert: "You have no permission."
-    end
+    find_qun_and_check_permission
   end
 
    def update
-     @qun = Qun.find(params[:id])
+     find_qun_and_check_permission
      if @qun.update(qun_params)
        redirect_to quns_path, notice: "Update Success"
      else
@@ -41,10 +37,9 @@ class QunsController < ApplicationController
    end
 
   def destroy
-    @qun = Qun.find(params[:id])
+    find_qun_and_check_permission
     @qun.destroy
-    flash[:alert] = "Qun deleted"
-    redirect_to quns_path
+    redirect_to quns_path, alert: "Qun deleted"
   end
 
   private
