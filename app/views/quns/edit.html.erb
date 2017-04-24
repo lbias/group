@@ -3,9 +3,9 @@
 
     <hr>
     <%= form_for @qun do |f| %>
-      <% if @group.errors.any? %>
+      <% if @qun.errors.any? %>
       <ul>
-        <% @group.errors.full_messages.each do |msg| %>
+        <% @qun.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
