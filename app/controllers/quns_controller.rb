@@ -25,6 +25,10 @@ class QunsController < ApplicationController
 
   def edit
     @qun = Qun.find(params[:id])
+
+    if current_user != @qun.user
+      redirect_to root_path, alert: "You have no permission."
+    end
   end
 
    def update
