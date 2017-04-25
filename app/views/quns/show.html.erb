@@ -1,5 +1,6 @@
 <div class="col-md-12">
   <div class="qun">
+    <%= link_to("Write a Post", new_qun_post_path(@qun), class: "btn btn-default pull-right")%>
     <% if current_user && current_user == @qun.user %>
       <%= link_to("Edit", edit_qun_path(@qun), class: "btn btn-primary pull-right")%>
     <% end %>
